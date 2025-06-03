@@ -1,39 +1,31 @@
 #include <stdio.h>
 
-#define TAM 5 // Tamanho do tabuleiro 5x5
-
 int main() {
-    int tabuleiro[TAM][TAM] = {0}; // Inicializa tudo com 0 (água)
+    // Criando o tabuleiro 5x5 e preenchendo tudo com 0 (representa "água")
+    int tabuleiro[5][5] = {0};
 
-    //  NAVIO 1: Vertical (3 posições)
-    int navio1_x = 1; // Coluna fixa
-    int navio1_y_inicio = 0; // Começa na linha 0
-
+    // Posicionando o NAVIO 1 (vertical) com tamanho 3 na coluna 1 (x = 1)
     for (int i = 0; i < 3; i++) {
-        tabuleiro[navio1_y_inicio + i][navio1_x] = 1; // Marca com 1 (navio)
+        tabuleiro[i][1] = 1; // i é a linha (y), 1 é a coluna (x)
     }
 
-    //  NAVIO 2: Horizontal (4 posições)
-    int navio2_y = 4; // Linha fixa
-    int navio2_x_inicio = 0; // Começa na coluna 0
-
+    // Posicionando o NAVIO 2 (horizontal) com tamanho 4 na linha 4 (y = 4)
     for (int i = 0; i < 4; i++) {
-        tabuleiro[navio2_y][navio2_x_inicio + i] = 2; // Marca com 2 (navio)
+        tabuleiro[4][i] = 2; // 4 é a linha (y), i é a coluna (x)
     }
 
     // Exibindo as coordenadas dos navios
-    printf("Coordenadas dos navios posicionados:\n");
-
-    // Percorre o tabuleiro
-    for (int y = 0; y < TAM; y++) {
-        for (int x = 0; x < TAM; x++) {
+    printf("Coordenadas dos navios:\n");
+    for (int y = 0; y < 5; y++) {
+        for (int x = 0; x < 5; x++) {
             if (tabuleiro[y][x] == 1) {
-                printf("Navio 1 (Vertical): (%d, %d)\n", x, y);
+                printf("Navio 1 (Vertical) em: (%d, %d)\n", x, y);
             } else if (tabuleiro[y][x] == 2) {
-                printf("Navio 2 (Horizontal): (%d, %d)\n", x, y);
+                printf("Navio 2 (Horizontal) em: (%d, %d)\n", x, y);
             }
         }
     }
 
     return 0;
 }
+
